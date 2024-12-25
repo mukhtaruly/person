@@ -1,10 +1,10 @@
-public class Person {
+public class PersonTask1 {
     String name;
     String surname;
     int age;
     boolean gender;
 
-    public Person(String name, String surname, int age, boolean gender) {
+    public PersonTask1(String name, String surname, int age, boolean gender) {
         this.name = name;
         this.surname = surname;
         this.age = age;

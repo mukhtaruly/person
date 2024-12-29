@@ -1,60 +1,55 @@
+import java.util.ArrayList;
+import java.util.List;
 
-public class Student {
-    private static int id = 1;
-    private int id_gen;
-    private String name;
-    private String surname;
-    private int age;
-    private double GPA;
+class Student extends Person {
+    private int studentID;
+    private List<Integer> grades;
 
-    public Student() { //no arg constructor
-        id_gen = id++;
+    public Student(String name, String surname, int age, boolean gender, int studentID) {
+        super(name, surname, age, gender);
+        this.studentID = studentID;
+        this.grades = new ArrayList<>();
     }
 
-    public Student(String name, String surname, int age, double GPA) {
-        this(); //calling no ar constructor
-        this.name = name;
-        this.surname = surname;
-        this.age = age;
-        this.GPA = GPA;
+    public void addGrade(int grade) {
+        grades.add(grade);
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public double calculateGPA() {
+        int total = 0;
+        for (int grade : grades) {
+            total += grade;
+        }
+        return grades.size() > 0 ? (double) total / grades.size() : 0;
     }
 
-    public void setSurname(String surname) {
-        this.surname = surname;
-    }
-
-    public void setGPA(double GPA) {
-        this.GPA = GPA;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getSurname() {
-        return surname;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public double getGPA() {
-        return GPA;
-    }
-
+    @Override
     public String toString() {
-        return "Student id: " + id_gen +
-                "\nFull name: " + name + " " + surname +
-                "\nAge: " + age +
-                "\nGPA: " + GPA;
+        String gradesString = grades.isEmpty() ? "No grades" : grades.toString();
+        return super.toString() + " I am a student with ID " + studentID + ". My grades: " + gradesString + ".";
+    }
+}
+
+class Teacher extends Person {
+    private String subject;
+    private int yearsOfExperience;
+    private int salary;
+
+    public Teacher(String name, String surname, int age, boolean gender, String subject, int yearsOfExperience, int salary) {
+        super(name, surname, age, gender);
+        this.subject = subject;
+        this.yearsOfExperience = yearsOfExperience;
+        this.salary = salary;
+    }
+
+    public void giveRaise(double percentage) {
+        if (yearsOfExperience > 10) {
+            salary += salary * percentage / 100;
+        }
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + " I teach " + subject + ". My salary: " + salary + " and I have " + yearsOfExperience + " years of experience.";
     }
 }

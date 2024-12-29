@@ -26,7 +26,7 @@ class Student extends Person {
     @Override
     public String toString() {
         String gradesString = grades.isEmpty() ? "No grades" : grades.toString();
-        return super.toString() + " I am a student with ID " + studentID + ". My grades: " + gradesString + ".";
+        return super.toString() + " I am a student with ID " + studentID  + gradesString + ".";
     }
 }
 
@@ -50,6 +50,6 @@ class Teacher extends Person {
 
     @Override
     public String toString() {
-        return super.toString() + " I teach " + subject + ". My salary: " + salary + " and I have " + yearsOfExperience + " years of experience.";
+        return super.toString() + " I teach " + subject + " "+ yearsOfExperience + " "+salary;
     }
 }

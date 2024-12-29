@@ -17,7 +17,7 @@ public class Main {
                 String surname = parts[1];
                 int age = Integer.parseInt(parts[2]);
                 boolean gender = parts[3].equalsIgnoreCase("Male");
-                int studentID = (int) (Math.random() * 9000) + 1000; // Студентке ID беру
+                int studentID = (int) (Math.random() * 55) + 100; // Студентке ID беру
 
 
                 Student student = new Student(name, surname, age, gender, studentID);

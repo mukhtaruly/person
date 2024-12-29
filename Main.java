@@ -39,10 +39,10 @@ public class Main {
             BufferedReader teacherReader = new BufferedReader(new FileReader("src/teachers.txt"));
             String line;
             while ((line = teacherReader.readLine()) != null) {
-                // Жолды бос орындар арқылы бөлшектеу
+
                 String[] parts = line.split("\\s+");
 
-                // Деректерді алу
+
                 String name = parts[0];
                 String surname = parts[1];
                 int age = Integer.parseInt(parts[2]);
@@ -63,7 +63,7 @@ public class Main {
             System.out.println("Error parsing number from teachers file.");
         }
 
-        // Print all members
+
         System.out.println("School Members:");
         school.printMembers();
     }
